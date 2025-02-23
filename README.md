@@ -384,7 +384,9 @@ Outliers Detected:
 
 Outliers in Engineering, IT, and Executive salaries suggest either high-performing employees, special projects, or discrepancies.
 
-#for different positions plot the engagement survey
+
+
+# for different positions plot the engagement survey
 
 ```
 plt.figure(figsize =(10, 6))
@@ -395,10 +397,12 @@ plt.xticks(rotation = 80)
 plt.title('Engagement Survey by Position')
 plt.show()
 ```
-![download](https://github.com/user-attachments/assets/10fe624d-9c52-4336-9d3c-f2c90fba9be7)
 
 
-#marital status by gender
+![download](https://github.com/user-attachments/assets/7cddcb11-7d2f-4a6b-ad57-37e45a5055cd)
+
+
+# marital status by gender
 
 ```
 
@@ -406,12 +410,13 @@ sns.countplot(x = 'MaritalDesc', hue = 'GenderID', data = df, palette = 'rainbow
 plt.show()
 
 ```
-![Uploading download.png…]()
+
+![download](https://github.com/user-attachments/assets/b81d8e5d-54c6-45fd-8a5e-6c69026a4f88)
 
 
 #Insights >> Most of the males are single
 
-#what is the avg enagement score for employees in each department
+# what is the avg enagement score for employees in each department
 
 ```
 df.groupby('Department')['EngagementSurvey'].mean()
@@ -420,7 +425,7 @@ df.groupby('Department')['EngagementSurvey'].mean()
 #insights >> Executive office has the highest engagement surveys
 
 
-#How many employees have been terminated for each position
+# How many employees have been terminated for each position
 
 ```
 
@@ -429,7 +434,7 @@ df[df['Termd'] == 1].groupby('Position')['Employee_Name'].count()
 
 
 
-##how many employees have been terminated for each reason
+# how many employees have been terminated for each reason
 ```
 df[df['Termd'] == 1].groupby('TermReason')['Employee_Name'].count()
 ```
@@ -437,18 +442,18 @@ df[df['Termd'] == 1].groupby('TermReason')['Employee_Name'].count()
 #insight - Another Position and Unhappy and seeking more money are the primary reason
 
 
-#What is the mdeian salary of male and female employees
+# What is the mdeian salary of male and female employees
 df.columns
 ```
 df.groupby('Sex').Salary.median()
 ```
 
-#What is total absences and average engagement survey score for each department
+# What is total absences and average engagement survey score for each department
 ```
 df.groupby('Department').agg({'Absences': 'sum', 'EngagementSurvey' : 'mean'})
 ```
 
-#what is the total number of special projects and average absences for emloyees in each gender category
+# what is the total number of special projects and average absences for emloyees in each gender category
 ```
 df.groupby('Sex').agg({'Absences': 'mean', 'SpecialProjectsCount': 'sum'})
 
