@@ -1,4 +1,4 @@
-![download](https://github.com/user-attachments/assets/bef3229b-2dbf-4ce3-b8e1-9d09e264a88a)# HR Employee Engagement Analysis
+# HR Employee Engagement Analysis
 
 ## 🚀 Introduction
 In this project, I explored an HR dataset to analyze employee engagement. The goal was to identify factors influencing engagement and provide actionable insights for HR teams.
@@ -316,7 +316,7 @@ plt.show()
 
 ```
 
-![Uploading download.png…]()
+![download](https://github.com/user-attachments/assets/a7d3e5c1-b49c-4494-8138-e8225e11a0fd)
 
 #insights - #insights>>generally trend is increasing if we go from PIP to fully meets this
 
@@ -330,5 +330,126 @@ plt.show()
 #### 🔢 Satisfaction Rating Distribution
 ```python
 b = df.EmpSatisfaction.value_counts()
+
+plt.stem(b.index, b)
+plt.ylabel("No of Employees")
+plt.xticks(b.index)
+plt.xlabel("Rating Given")
+plt.ylabel("Employee Satisfaction")
+plt.show()
+```
+
+![download](https://github.com/user-attachments/assets/54ddea43-01d0-48bc-bd05-3a9a31b9e63a)
+
+
+🔍 Insights:
+Rating Trend:
+
+The most common rating is 3, indicating a neutral satisfaction level among employees.
+Ratings 1 and 5 are less frequent, showing fewer employees are extremely dissatisfied or highly satisfied.
+HR Focus:
+
+HR can investigate why many employees are giving a mid-level rating and explore ways to boost satisfaction.
+
+
+## Multivariate Analysis
+
+**Outliers in Salary by Department:**  
+Analyzing salary distribution across departments helps HR identify potential salary discrepancies and outliers.
+
+---
+
+### 📊 Boxplot: Salary Distribution by Department
+```python
+plt.figure(figsize = (15,8))
+sns.boxplot(x = 'Department', y = 'Salary', data = df, palette = 'viridis')
+
+plt.xlabel("Department")
+plt.ylabel("Salary")
+plt.xticks(rotation = 45)
+plt.show()
+
+```
+![download](https://github.com/user-attachments/assets/2bd666f6-0b80-44ed-82f9-40031f14d0fe)
+
+Executives Paid Highest:
+
+As expected, the Executive department leads in salary, reflecting their senior-level responsibilities.
+Least Salary in Production:
+
+The Production department has the lowest salary range, likely due to entry-level roles and standardized pay scales.
+Outliers Detected:
+
+Outliers in Engineering, IT, and Executive salaries suggest either high-performing employees, special projects, or discrepancies.
+
+#for different positions plot the engagement survey
+
+```
+plt.figure(figsize =(10, 6))
+sns.barplot(x = 'Position', y = 'EngagementSurvey', data = df, palette = 'viridis')
+plt.xlabel('Position')
+plt.ylabel('Engagement Survey')
+plt.xticks(rotation = 80)
+plt.title('Engagement Survey by Position')
+plt.show()
+```
+![download](https://github.com/user-attachments/assets/10fe624d-9c52-4336-9d3c-f2c90fba9be7)
+
+
+#marital status by gender
+
+```
+
+sns.countplot(x = 'MaritalDesc', hue = 'GenderID', data = df, palette = 'rainbow')
+plt.show()
+
+```
+![Uploading download.png…]()
+
+
+#Insights >> Most of the males are single
+
+#what is the avg enagement score for employees in each department
+
+```
+df.groupby('Department')['EngagementSurvey'].mean()
+```
+
+#insights >> Executive office has the highest engagement surveys
+
+
+#How many employees have been terminated for each position
+
+```
+
+df[df['Termd'] == 1].groupby('Position')['Employee_Name'].count()
+```
+
+
+
+##how many employees have been terminated for each reason
+```
+df[df['Termd'] == 1].groupby('TermReason')['Employee_Name'].count()
+```
+
+#insight - Another Position and Unhappy and seeking more money are the primary reason
+
+
+#What is the mdeian salary of male and female employees
+df.columns
+```
+df.groupby('Sex').Salary.median()
+```
+
+#What is total absences and average engagement survey score for each department
+```
+df.groupby('Department').agg({'Absences': 'sum', 'EngagementSurvey' : 'mean'})
+```
+
+#what is the total number of special projects and average absences for emloyees in each gender category
+```
+df.groupby('Sex').agg({'Absences': 'mean', 'SpecialProjectsCount': 'sum'})
+
+```
 
 
