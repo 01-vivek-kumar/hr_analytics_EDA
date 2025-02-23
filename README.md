@@ -279,8 +279,8 @@ plt.show()
 
 ```
 
+![download](https://github.com/user-attachments/assets/d49a37b2-27e1-4703-98ac-11f99d432409)
 
-![download](https://github.com/user-attachments/assets/94ade6fc-fe18-4ca4-845d-db96d2d7ba2d)
 
 
 🔍 Insights:
@@ -316,7 +316,8 @@ plt.show()
 
 ```
 
-![download](https://github.com/user-attachments/assets/a7d3e5c1-b49c-4494-8138-e8225e11a0fd)
+![download](https://github.com/user-attachments/assets/129bf13d-47e8-4575-8842-74d34387b5b3)
+
 
 #insights - #insights>>generally trend is increasing if we go from PIP to fully meets this
 
@@ -339,7 +340,7 @@ plt.ylabel("Employee Satisfaction")
 plt.show()
 ```
 
-![download](https://github.com/user-attachments/assets/54ddea43-01d0-48bc-bd05-3a9a31b9e63a)
+![download](https://github.com/user-attachments/assets/895ccf50-a417-49c9-ab37-3bf127807bc3)
 
 
 🔍 Insights:
@@ -370,7 +371,8 @@ plt.xticks(rotation = 45)
 plt.show()
 
 ```
-![download](https://github.com/user-attachments/assets/2bd666f6-0b80-44ed-82f9-40031f14d0fe)
+
+![download](https://github.com/user-attachments/assets/2046eaee-e49c-4f13-ac34-6eb489f053dc)
 
 Executives Paid Highest:
 
